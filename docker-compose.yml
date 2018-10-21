@@ -1,0 +1,19 @@
+version: '2'
+networks:
+  pi: 
+
+services:
+  app1:
+    depends_on:
+    - app2
+    build: ./app1
+    ports: 
+    - 3051:3051
+    networks:
+    - pi
+  app2:
+    build: ./app2
+    expose:
+    - 3052
+    networks:
+    - pi
